@@ -1,0 +1,10 @@
+for (( i=0; i < $1; i++))
+do
+echo "---------- Start test loop $i "
+echo "---------- loading greybox DFx image "
+./load_pr_greybox*
+echo "---------- loading user DFx image "
+./load_pr_user*
+echo "---------- End test loop $i "
+echo "-----------------------------------------------------------------------------------"
+done

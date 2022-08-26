@@ -1,0 +1,4 @@
+setpci -s $1 COMMAND.w
+setpci -s $1 COMMAND.w=06
+lspci -vv -s $1
+

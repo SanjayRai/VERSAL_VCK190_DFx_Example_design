@@ -1,0 +1,4 @@
+scp the files to the  petaLinux machine .
+These files are utilities to demonstrate programing the partial PDI from linux (APU)/
+
+To run the DFx_loop  script the partial PDI  from the build machine would also need to be transfered.

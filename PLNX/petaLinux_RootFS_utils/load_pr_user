@@ -1,0 +1,1 @@
+./fpgautil -b ./T010/VCK190_top_i_user_role_inst_0_user_role_inst_0_partial.pdi  -f Partial

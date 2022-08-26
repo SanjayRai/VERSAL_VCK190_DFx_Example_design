@@ -1,0 +1,9 @@
+/include/ "system-conf.dtsi"
+/ {
+	memory@0 {
+		device_type = "memory";
+		reg = <0x00 0x00 0x00 0x80000000 0x08 0x00 0x00 0x80000000>;
+                
+	};
+
+};

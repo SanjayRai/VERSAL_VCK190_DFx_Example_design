@@ -1,0 +1,5 @@
+cp system-user.dtsi ./versal_PLX/project-spec/meta-user/recipes-bsp/device-tree/files/
+cd versal_PLX/
+petalinux-build 
+petalinux-package --force --boot --u-boot
+petalinux-package --force --prebuilt

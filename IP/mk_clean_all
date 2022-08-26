@@ -1,0 +1,8 @@
+rm -rf .Xil/
+rm -rf project_X/
+rm -rf vivado*.jou
+rm -rf vivado*.log
+rm -rf vck190*.*
+
+rm -rf ../IP/user_role
+rm -rf ../IP/VCK190_top

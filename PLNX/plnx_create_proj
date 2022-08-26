@@ -1,0 +1,3 @@
+petalinux-create -t project  -n versal_PLX --template versal
+cd versal_PLX/
+petalinux-config --get-hw-description=../../vivado_project/VCK190_top_wrapper.xsa

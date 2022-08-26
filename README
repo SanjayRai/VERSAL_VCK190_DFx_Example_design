@@ -1,0 +1,72 @@
+
+The exmaple build  Versal  CIPS  example (CPM-PCIE xDMA, NoC, DDR, MMIO-BRAM) with TCL Scripts.
+
+* THe Design was initial created in Vivado IPI  and converted to TCL script.
+
+Reuirements:
+1. Vivado 2022.1
+
+Build instructions:
+
+To Build the  design from scripts (linux command) :
+    1. cd  vivado_project
+    2. ./build_all
+
+To  view and analyze an implemented  design in Vivado GUI :
+    1. cd vivado_project
+    2. vivado project_X/project_X.xpr
+
+
+
+Optional partial steps :
+
+To  Build just the IP in IPI  from script
+    1. cd IP
+    2. vivado -source vivado_project.tcl
+    3. build_BD
+
+To view or re-customize the IPI generated IP in Vivado GUI :
+    1. cd IP
+    2. vivado -source vivado_project.tcl
+    3. customize_BD
+
+
+To run the design  in Hardware :
+Requirements :  x86 host  with Linux OS, VCK190 dev kit, Xilinx xDMA driver and Laptop installed  with Vivado or Vivado Lab tools
+
+1. Xilinx xDMA driver: https://github.com/Xilinx/dma_ip_drivers
+    a. Download and build driver on the x86 Linux host.
+2. Insert the VCK190 into the x86 host systems PCIe Slot (up to PCIe Gen4 x8).
+3. Download the vck190_tester_top.pdi and vck190_tester_top.ltx to the card using Vivado HW Manager (Laptop connected to VCK190 via USB cable)
+4. Warm restart  (ie, sudo reboot) to reenumerate the VCK190
+5. issue lspci command to ensure card is enumerated and xDMA driver is attached to the PCIe  BDF of the card.
+
+
+Building petalinux:
+    1. cd  vivado_project
+    2. ./build_all
+If the above is already  done
+    3.  ./plnx_create_proj
+    4.  ./plnx_bld
+Modify the  URL in jtag_boot to  reflect the IP address of the  machine running the hw_server and attaced to the VCK190 via  JTAG
+    5. ./jtag_boot 
+    6. scp the files from petaLinux_RootFS_utils directory to the linux machine.
+    7. ssh into the petaLinux machine an run the DFx_loop script to program the partial PDIs from linux (APU)
+
+
+Other  Misc utility script:
+0. google io tool sutility.
+    iotools is a usful utility for mmio. It can be downloaded from:
+        - https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/iotools/iotools-1.5.tar.gz
+
+1. From x86 host:
+    - enable_pcieMEM : THis script uses setpci to enable IO and MEM on the PCIe endpoint to enable reading and writing from the PCIe endpoint.
+    - VF0_BRAM_RD_ONLY_TEST
+    - VF0_BRAM_test
+
+
+2. From petaLinux manhine:
+    - VF0_BRAM_RD_ONLY_TEST
+    - VF0_BRAM_test
+
+

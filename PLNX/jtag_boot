@@ -1,0 +1,2 @@
+cd versal_PLX
+petalinux-boot --jtag --prebuilt 3 --hw_server-url 192.168.4.78:3121

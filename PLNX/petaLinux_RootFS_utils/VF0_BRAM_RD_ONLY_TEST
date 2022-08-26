@@ -1,0 +1,17 @@
+echo " ------ Write/read 0xaa665599 -------------------------"
+iotools mmio_read32 0x20180000000
+iotools mmio_read32 0x20180000004
+iotools mmio_read32 0x20180000008
+iotools mmio_read32 0x2018000000c
+iotools mmio_read32 0x20180000010
+iotools mmio_read32 0x20180000014
+iotools mmio_read32 0x20180000018
+iotools mmio_read32 0x2018000001c
+iotools mmio_read32 0x20180000020
+iotools mmio_read32 0x20180000024
+iotools mmio_read32 0x20180000028
+iotools mmio_read32 0x2018000002c
+iotools mmio_read32 0x20180000030
+iotools mmio_read32 0x20180000034
+iotools mmio_read32 0x20180000038
+iotools mmio_read32 0x2018000003c

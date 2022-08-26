@@ -1,0 +1,24 @@
+SRCS_GPP   :=  $(SRCS_HOST)
+
+.PHONY: all
+all: tb_gpp_hw 
+
+
+.PHONY: srai_hw
+srai_hw: tb_gpp_hw
+
+
+help:
+	@echo "Make targets :"
+	@echo "srai_sw_sim | srai_hw | clean "
+
+
+
+tb_gpp_hw: $(SRCS_GPP) 
+	$(CXX) $(CXXFLAGS_GPP_HW) -o $(DESIGN_NAME).hw $^ 
+
+clean:
+	-rm -rf $(DESIGN_NAME).hw 
+	-rm -rf gmon.out
+	-rm -rf log.out
+	-rm -rf webtalk* 
